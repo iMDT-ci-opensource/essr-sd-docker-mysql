@@ -1,4 +1,6 @@
-## Original mysql ( without the volume )
+## This part is copy of original mysql with one change: we supressed the VOLUME line
+## Original URL: https://github.com/docker-library/mysql/blob/b0f81a33748561ae4e35a09895b2ad112ff89ba6/8.0/Dockerfile
+########################################################################################################################
 FROM debian:buster-slim
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
@@ -83,10 +85,9 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 3306 33060
 CMD ["mysqld"]
+########################################################################################################################
 
-### end of original mysql
-
-
+## Begin of customized part
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -96,4 +97,5 @@ USER mysql
 
 # The real command is specified in docker-compose.yml
 CMD ["sleep", "10"]
+
 
