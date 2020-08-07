@@ -95,6 +95,8 @@ RUN apt-get update && apt-get install -y \
 
 USER mysql
 
+# Test
+
 # The real command is specified in docker-compose.yml
 CMD ["sleep", "10"]
 
